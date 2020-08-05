@@ -2,7 +2,21 @@
 
 //map and release 
 
-export default function trace (name){
+
+
+
+
+// export const trace()
+// {
+
+
+// }
+
+
+function name(params) {
+    
+} trace (name )
+{
     return  new Trace(name);
 }
 
@@ -17,6 +31,9 @@ Trace.prototype.start  = function() {
 Trace.prototype.stop  = function() {
     console.log('stop trace'+ this.name);
 };
+
+
+
 
 
 
