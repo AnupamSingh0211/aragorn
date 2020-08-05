@@ -20,7 +20,6 @@ Trace.prototype.stop  = function() {
     console.log('stop trace'+ this.name + this.duration );
 };
 
-
 const customTrace = new Trace('PAGE_INT');
 customTrace.start();
 setTimeout(() => { customTrace.stop();}, 1000);
