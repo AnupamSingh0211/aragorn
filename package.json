@@ -1,0 +1,11 @@
+{
+  "name": "Aragorn",
+  "version": "1.0.0",
+  "description": "Aragorn project",
+  "main": "index.js",
+  "author": "Anupam Singh",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

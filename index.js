@@ -1,20 +1,49 @@
-var Trace = function ( traceName,properties){
-    this.id= 123,
-    this.traceName = traceName,
-    this.properties=  properties
+// import aragorn  from './Aragorn';
+
+ function Trace(name) {
+    this.name = name;
+    this.startTime;
+    this.duration;
 }
 
+Trace.prototype.start  = function() {
+    
+    this.startTime = Date.now();
+    console.log('start trace'+ this.name + Date.now());
+};
+
+Trace.prototype.walk = function(){};
+
+Trace.prototype.stop  = function() {
+    this.duration = this.startTime - Date.now();
+
+    console.log('stop trace'+ this.name + this.duration );
+};
 
 
-var trace1 = new Trace('sampleTrace1', new Map().set('property1','1'))
+const customTrace = new Trace('PAGE_INT');
+customTrace.start();
+setTimeout(() => { customTrace.stop();}, 1000);
 
-var trace2 = new Trace('sampleTrace2', new Map().set('property1','2'))
+
+// const customTrace = new Trace('API_LOADED');
+// customTrace.start();
+// setTimeout(() => { customTrace.stop();}, 1000);
 
 
-let traceQueue = new Map();
 
-traceQueue.set(Date.now(),trace1).set(Date.now()+1,trace2);
+// const customTrace = new Trace('RESPONSE_PARSE');
+// customTrace.start();
+// setTimeout(() => { customTrace.stop();}, 1000);
 
-console.log("Number of traces added are " + traceQueue.size)
 
-console.log(traceQueue)
+// const customTrace = new Trace('RESPONSE_TRANSFORM');
+// customTrace.start();
+// setTimeout(() => { customTrace.stop();}, 1000);
+
+
+
+// const customTrace = new Trace('PAGE_BIND');
+// customTrace.start();
+// setTimeout(() => { customTrace.stop();}, 1000);
+
