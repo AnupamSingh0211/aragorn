@@ -1,4 +1,5 @@
-//  import aragorn  from './Aragorn';
+
+ import Model from './Aragorn';
 
  function Trace(name) {
     this.name = name;
@@ -15,14 +16,19 @@ Trace.prototype.start  = function() {
 Trace.prototype.walk = function(){};
 
 Trace.prototype.stop  = function() {
-    this.duration = this.startTime - Date.now();
+    this.duration = Date.now() - this.startTime ;
 
     console.log('stop trace'+ this.name + this.duration );
 };
 
-const customTrace = new Trace('PAGE_INT');
+const customTrace = new Trace('PAGE_INIT');
 customTrace.start();
-setTimeout(() => { customTrace.stop();}, 1000);
+setTimeout(() => { customTrace.stop();}, 2000);
+
+
+console.log("imported module" + Model.prototype.getFact());
+
+
 
 
 // const customTrace = new Trace('API_LOADED');
