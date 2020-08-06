@@ -1,11 +1,14 @@
 {
-  "name": "Aragorn",
+  "name": "aragorn",
   "version": "1.0.0",
-  "description": "Aragorn project",
+  "description": "js trace lib",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Anupam Singh",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.18.0"
+  "devDependencies": {
+    "webpack": "^4.44.1"
   }
 }
