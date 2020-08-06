@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 
 module.exports = {
 
@@ -7,7 +8,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
 },
+devServer: {
+    contentBase: path.join(__dirname, 'dist')
+},
+plugins: [
+    new HtmlWebpackPlugin(
+        {
+            
+        }
+    )
 
+]
  //entry point
 //output
 //loaders
