@@ -31,7 +31,7 @@ Aragorn.startTrace('CUSTOM_EVENT_NAME');
 <br>
 
 <br>
-Now,stop the tracking when you doen
+Now,stop the tracking when you done
 
 ```javascript
 {
@@ -44,7 +44,7 @@ Note: Aragorn also takes a function when you are ask him to stop the trace,
 
 <br>
 <br>
-aragorn will return details like event name and event duration for you to use
+Aragorn will return details like event name and event duration for you to use.
 
 ```javascript
 function printEventDuration( eventName ,duration){
