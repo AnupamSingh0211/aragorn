@@ -1,5 +1,5 @@
 # Aragorn
-[The Strider](images/aragorn.png)
+![The Strider](images/aragorn.jpg)
 
 
 A Simple Java Script Library, to track events in our JS codebases.
