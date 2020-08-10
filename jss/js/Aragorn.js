@@ -6,23 +6,25 @@ var Aragorn = /** @class */ (function () {
         this.traceMap = new Map();
     }
     Aragorn.prototype.startTrace = function (traceKey) {
-        if (this.traceMap.has(traceKey)) {
+        if (traceKey && this.traceMap.has(traceKey)) {
             this.traceMap.delete(traceKey);
         }
-        var traceObj = new Trace_1.default(name);
+        var traceObj = new Trace_1.default(traceKey);
         this.traceMap.set(traceKey, traceObj);
         traceObj.start();
     };
-    Aragorn.prototype.stopTrace = function (traceKey) {
-        if (this.traceMap.has(traceKey)) {
+    Aragorn.prototype.stopTrace = function (traceKey, fn) {
+        if (traceKey && this.traceMap.has(traceKey)) {
             var traceObj = this.traceMap.get(traceKey);
             traceObj.stop();
             this.traceMap.delete(traceKey);
+            fn(traceObj.name, traceObj.duration);
         }
+        else
+            throw new ReferenceError();
     };
     Aragorn.prototype.clearAllTrace = function () {
-        console.log('Aragorn');
-        return '1234d56';
+        delete this.traceMap;
     };
     return Aragorn;
 }());
