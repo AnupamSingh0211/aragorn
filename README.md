@@ -77,8 +77,13 @@ Aragorn.stopTrace('CUSTOM_EVENT_2',printEventDuration)
 ```
 Aragorn.clearAllTrace();
 ```
----
 
+---
+#### Case 4 : Log all event activity
+```
+Aragorn.enableLogs(true);
+```
+---
 ## Edge Cases
 
 #### Case 1  : event stop is called incorrectly before starting the trace
