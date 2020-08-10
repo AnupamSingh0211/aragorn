@@ -4,7 +4,11 @@ var Trace_1 = require("./Trace");
 var Aragorn = /** @class */ (function () {
     function Aragorn() {
         this.traceMap = new Map();
+        this.logsEnabled = false;
     }
+    Aragorn.prototype.enableLogs = function (logsEnabled) {
+        this.logsEnabled = logsEnabled;
+    };
     Aragorn.prototype.startTrace = function (traceKey) {
         var startTraceFailed = 'Aragon is unable to start Trace : Trace Key ';
         if (traceKey) {
@@ -15,6 +19,8 @@ var Aragorn = /** @class */ (function () {
                 var traceObj = new Trace_1.default(traceKey);
                 this.traceMap.set(traceKey, traceObj);
                 traceObj.start();
+                if (this.logsEnabled)
+                    console.log(' Aragorn has started the trace : Event = ' + traceKey);
             }
             else
                 throw new TypeError().name = startTraceFailed + 'should be string';
@@ -30,6 +36,8 @@ var Aragorn = /** @class */ (function () {
                     var traceObj = this.traceMap.get(traceKey);
                     traceObj.stop();
                     this.traceMap.delete(traceKey);
+                    if (this.logsEnabled)
+                        console.log(' Aragorn has finshed the trace : Event = ' + traceObj.name + ' Event Duration = ' + traceObj.duration);
                     fn(traceObj.name, traceObj.duration);
                 }
                 else
@@ -42,7 +50,6 @@ var Aragorn = /** @class */ (function () {
             throw new ReferenceError().name = stopTraceFailed + 'Undefined';
     };
     Aragorn.prototype.clearAllTrace = function () {
-        console.log('map');
         delete this.traceMap;
     };
     return Aragorn;

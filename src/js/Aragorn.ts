@@ -3,6 +3,12 @@ import Trace from './Trace';
  class Aragorn {
 
     traceMap = new Map<String, Trace>();
+
+    logsEnabled = false;
+
+    enableLogs( logsEnabled : boolean){
+        this.logsEnabled= logsEnabled;
+    }
      
     startTrace( traceKey : string)
     {
@@ -18,6 +24,9 @@ import Trace from './Trace';
                     const traceObj = new Trace(traceKey);
                     this.traceMap.set(traceKey, traceObj)
                     traceObj.start()
+
+                    if(this.logsEnabled)
+                    console.log(' Aragorn has started the trace : Event = ' + traceKey);
                 }       
             else throw new TypeError().name = startTraceFailed + 'should be string'
         }    
@@ -37,6 +46,10 @@ import Trace from './Trace';
                         const traceObj = this.traceMap.get(traceKey)
                         traceObj.stop()
                         this.traceMap.delete(traceKey)
+
+                        if(this.logsEnabled)
+                        console.log(' Aragorn has finshed the trace : Event = ' + traceObj.name + ' Event Duration = '+ traceObj.duration); 
+
                         fn(traceObj.name,traceObj.duration)
                      }
                     else throw new Error().name = stopTraceFailed + 'Missing'
@@ -47,7 +60,6 @@ import Trace from './Trace';
     }
 
       clearAllTrace(){
-          console.log('map');
         delete this.traceMap
     }
 }

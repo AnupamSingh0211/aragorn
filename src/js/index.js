@@ -3,7 +3,7 @@ import Aragorn from './Aragorn';
 
 console.log("======================Trace Sample Start==========================" );
 
-
+//Aragorn.enableLogs(true);
 //Case 1 when correct values of event name is given
 Aragorn.startTrace('CUSTOM_EVENT_1');
 //add delay then stop
