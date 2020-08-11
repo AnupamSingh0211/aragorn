@@ -2,17 +2,16 @@
 ![The Strider](images/aragorn.jpg)
 
 
-A Simple Java Script Library, to track events in our JS codebases.
+A Simple Java Script Library, to track events in our JS code bases.
 
 <br>
-Tracking time taken by a piece of code is always a piece of pride for  devs and mystery for product guys.
+Tracking time taken by a piece of code is always the easiest way to do profiling.
 
-And easiest way to track perfromance of some UI/ BE event is to calculate the time taken from the starting and ending point of the event.
+And easiest way to track performance of some UI/ BE event is to calculate the time taken from the starting and ending point of the event.
 
-Aragorn help the JS dev to implement this easily in his code base by just asking to start and stop an event when needed and araogorn the legendary tracer will do the rest and will either return the time elapsed for an event or will throw a cautionary error warning for the mortals to correct his/her request.
+Aragorn helps the JS devs to carry out this easily in his/her code base by just asking to start and stop an event when needed and Aragorn the legendary tracer will do the rest and will either return the time elapsed for an event or will throw a cautionary error warning for the mortals to correct his/her request.
 
-
-Its usage is very simple , import aragorn wherever you want to avail his services.
+Its usage is very simple , import Aragorn wherever you want to avail his services.
 
 ```javascript
 import Aragorn from './Aragorn';
@@ -40,10 +39,11 @@ Aragorn.stopTrace('CUSTOM_EVENT_NAME',printEventDuration)
 }
 ```
 
-Note: Aragorn also takes a function when you are ask him to stop the trace, 
+Note: Aragorn also takes a function when you are ask him to stop the trace.
 
 <br>
 <br>
+
 Aragorn will return details like event name and event duration for you to use.
 
 ```javascript
