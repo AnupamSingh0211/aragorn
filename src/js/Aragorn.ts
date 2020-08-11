@@ -18,11 +18,6 @@ class Aragorn {
     this.logsEnabled = logsEnabled;
   }
 
-
-    throwE(){
-      throw new TypeError();
-    };
-
   startTrace(traceKey: string, traceProperties?: Map<string, object>) {
     const startTraceFailed = 'Aragon is unable to start Trace : Trace Key ';
 

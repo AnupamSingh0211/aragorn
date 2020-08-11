@@ -55,27 +55,27 @@ setTimeout(() => {
 
 // Case 7 PassExtra properties in a trace
 
-  let traceProperties = new Map();
+//  const traceProperties = new Map();
 
-traceProperties.set('property1', 'value1');
-traceProperties.set('property2', 'www.androidiots.in');
+// traceProperties.set('property1', 'value1');
+// traceProperties.set('property2', 'www.androidiots.in');
 
-Aragorn.startTrace('CUSTOM_EVENT_WITH_MAP', traceProperties);
-//add delay then stop
-setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_WITH_MAP',printEventDurationAndMap)},2000);
+// Aragorn.startTrace('CUSTOM_EVENT_WITH_MAP', traceProperties);
+// // add delay then stop
+// setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_WITH_MAP',printEventDurationAndMap)},2000);
 
-function printEventDurationAndMap(traceObj: any){
+// function printEventDurationAndMap(traceObj: any){
 
-  if(traceObj)
-  console.log("Event : " +traceObj.key + " Duration:" + traceObj.duration);
+//   if(traceObj)
+//   console.log("Event : " +traceObj.key + " Duration:" + traceObj.duration);
 
-  if(traceObj.properties)
-  {
-    traceObj.properties.forEach((value: string, key: string) => {
-      console.log(key, value);
-  });
-  }
-}
+//   if(traceObj.properties)
+//   {
+//     traceObj.properties.forEach((value: string, key: string) => {
+//       console.log(key, value);
+//   });
+//   }
+// }
 
 function printEventDuration(traceObj: any) {
   if (traceObj) console.log('Event : ' + traceObj.key + ' Duration:' + traceObj.duration);

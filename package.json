@@ -1,18 +1,25 @@
 {
-  "name": "aragorn",
+  "name": "aragorn-tracer",
   "version": "1.0.0",
-  "description": "js trace lib",
-  "main": "./src/js/index.ts",
+  "description": "A Type script library to create traces based on start and end time of an event and measure the latency difference",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack --mode production",
     "start": "tsc && webpack-dev-server --mode development --open",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "test": "tsc && jest --config jestconfig.json"
+    "test": "tsc && jest --config jestconfig.json",
+   "build": "tsc",
+   "prepare": "npm run build",
+   "prepublishOnly": "npm test && npm run lint",
+   "preversion": "npm run lint",
+   "version": "npm run format && git add -A src",
+   "postversion": "git push && git push --tags"
   },
   "author": "Anupam Singh",
   "license": "ISC",
+  "keywords": ["tracker", "aragorn","trace"],
   "devDependencies": {
     "@types/jest": "^26.0.9",
     "babel-core": "^6.26.3",
