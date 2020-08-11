@@ -1,14 +1,22 @@
 import Aragorn from './Aragorn';
-
+import AragornSingleTon from './AragornSingleTon';
 
 console.log("======================Trace Sample Start==========================" );
 
 //Aragorn.enableLogs(true);
 //Case 1 when correct values of event name is given
+
+
+
+
 Aragorn.startTrace('CUSTOM_EVENT_1');
 //add delay then stop
 setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_1',printEventDuration)},2000);
 
+
+AragornSingleTon.startTrace('CUSTOM_EVENT_3');
+//add delay then stop
+setTimeout(() => { AragornSingleTon.stopTrace('CUSTOM_EVENT_3',printEventDuration)},2000);
 
 
 //Case 2 when correct values of event name 

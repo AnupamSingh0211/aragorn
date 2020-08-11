@@ -6,6 +6,12 @@ var Aragorn = /** @class */ (function () {
         this.traceMap = new Map();
         this.logsEnabled = false;
     }
+    Aragorn.getInstance = function () {
+        if (!Aragorn.instance) {
+            Aragorn.instance = new Aragorn();
+        }
+        return Aragorn.instance;
+    };
     Aragorn.prototype.enableLogs = function (logsEnabled) {
         this.logsEnabled = logsEnabled;
     };
@@ -44,5 +50,5 @@ var Aragorn = /** @class */ (function () {
     };
     return Aragorn;
 }());
-exports.default = new Aragorn();
-//# sourceMappingURL=Aragorn.js.map
+exports.default = Aragorn.getInstance();
+//# sourceMappingURL=AragornSingleTon.js.map

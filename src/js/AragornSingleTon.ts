@@ -2,9 +2,19 @@ import Trace from './Trace';
 
  class Aragorn {
 
+    private static instance: Aragorn;
+
     traceMap = new Map<String, Trace>();
 
     logsEnabled = false;
+
+    static getInstance(): Aragorn {
+        if (!Aragorn.instance) {
+            Aragorn.instance = new Aragorn();
+        }
+    
+        return Aragorn.instance;
+      }
 
     enableLogs( logsEnabled : boolean){
         this.logsEnabled= logsEnabled;
@@ -54,7 +64,7 @@ import Trace from './Trace';
     }
 }
 
-export default new Aragorn();
+export default Aragorn.getInstance();
 
 
 
