@@ -39,7 +39,7 @@ Aragorn.stopTrace('CUSTOM_EVENT_NAME',printEventDuration)
 }
 ```
 
-Note: Aragorn also takes a function when you are ask him to stop the trace.
+Note: Aragorn also takes a function when you ask him to stop the trace.
 
 <br>
 <br>
