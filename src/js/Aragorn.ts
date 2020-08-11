@@ -2,15 +2,24 @@ import Trace from './Trace';
 
  class Aragorn {
 
+    private static instance: Aragorn;
+
     traceMap = new Map<String, Trace>();
 
     logsEnabled = false;
+
+    static getInstance(): Aragorn {
+        if (!Aragorn.instance) {
+            Aragorn.instance = new Aragorn();
+        }
+        return Aragorn.instance;
+      }
 
     enableLogs( logsEnabled : boolean){
         this.logsEnabled= logsEnabled;
     }
      
-    startTrace( traceKey : string)
+    startTrace( traceKey : string,  traceProperties?: Map<string, object>)
     {
     const startTraceFailed = 'Aragon is unable to start Trace : Trace Key ';
 
@@ -21,7 +30,7 @@ import Trace from './Trace';
             this.traceMap.delete(traceKey)
         }
 
-        const traceObj = new Trace(traceKey);
+        const traceObj = new Trace(traceKey,traceProperties);
         this.traceMap.set(traceKey, traceObj)
         traceObj.start()
 
@@ -44,9 +53,9 @@ import Trace from './Trace';
         this.traceMap.delete(traceKey)
 
         if(this.logsEnabled)
-        console.log(' Aragorn has finshed the trace : Event = ' + traceObj.name + ' Event Duration = '+ traceObj.duration); 
+        console.log(' Aragorn has finshed the trace : Event = ' + traceObj.key + ' Event Duration = '+ traceObj.duration); 
 
-        fn(traceObj.name,traceObj.duration)       
+        fn(traceObj)       
     }
 
       clearAllTrace(){
@@ -54,7 +63,7 @@ import Trace from './Trace';
     }
 }
 
-export default new Aragorn();
+export default Aragorn.getInstance();
 
 
 

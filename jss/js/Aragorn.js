@@ -6,10 +6,16 @@ var Aragorn = /** @class */ (function () {
         this.traceMap = new Map();
         this.logsEnabled = false;
     }
+    Aragorn.getInstance = function () {
+        if (!Aragorn.instance) {
+            Aragorn.instance = new Aragorn();
+        }
+        return Aragorn.instance;
+    };
     Aragorn.prototype.enableLogs = function (logsEnabled) {
         this.logsEnabled = logsEnabled;
     };
-    Aragorn.prototype.startTrace = function (traceKey) {
+    Aragorn.prototype.startTrace = function (traceKey, traceProperties) {
         var startTraceFailed = 'Aragon is unable to start Trace : Trace Key ';
         if (!traceKey)
             throw new ReferenceError(startTraceFailed + 'Undefined');
@@ -18,7 +24,7 @@ var Aragorn = /** @class */ (function () {
         if (traceKey && this.traceMap.has(traceKey)) {
             this.traceMap.delete(traceKey);
         }
-        var traceObj = new Trace_1.default(traceKey);
+        var traceObj = new Trace_1.default(traceKey, traceProperties);
         this.traceMap.set(traceKey, traceObj);
         traceObj.start();
         if (this.logsEnabled)
@@ -36,13 +42,13 @@ var Aragorn = /** @class */ (function () {
         traceObj.stop();
         this.traceMap.delete(traceKey);
         if (this.logsEnabled)
-            console.log(' Aragorn has finshed the trace : Event = ' + traceObj.name + ' Event Duration = ' + traceObj.duration);
-        fn(traceObj.name, traceObj.duration);
+            console.log(' Aragorn has finshed the trace : Event = ' + traceObj.key + ' Event Duration = ' + traceObj.duration);
+        fn(traceObj);
     };
     Aragorn.prototype.clearAllTrace = function () {
         delete this.traceMap;
     };
     return Aragorn;
 }());
-exports.default = new Aragorn();
+exports.default = Aragorn.getInstance();
 //# sourceMappingURL=Aragorn.js.map

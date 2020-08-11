@@ -4,7 +4,14 @@ var Aragorn_1 = require("./Aragorn");
 console.log("======================Trace Sample Start==========================");
 //Aragorn.enableLogs(true);
 //Case 1 when correct values of event name is given
+//AragornSingleTon.enableLogs(true)
 Aragorn_1.default.startTrace('CUSTOM_EVENT_1');
+//add delay then stop
+setTimeout(function () { Aragorn_1.default.stopTrace('CUSTOM_EVENT_1', printEventDuration); }, 2000);
+var traceProperties = new Map();
+traceProperties.set('property1', 'value1');
+traceProperties.set('property2', 'www.androidiots.in');
+Aragorn_1.default.startTrace('CUSTOM_EVENT_WITH_MAP', traceProperties);
 //add delay then stop
 setTimeout(function () { Aragorn_1.default.stopTrace('CUSTOM_EVENT_1', printEventDuration); }, 2000);
 //Case 2 when correct values of event name 
@@ -37,8 +44,13 @@ setTimeout(function () { Aragorn_1.default.stopTrace('CUSTOM_EVENT_1', printEven
 //Aragorn.stopTrace(null);  // Reference error will be thrown
 //Case 6  to clear all traces
 //Aragorn.clearAllTrace();
-function printEventDuration(eventName, duration) {
-    console.log("Event : " + eventName + " Duration:" + duration);
+// function printEventDuration( eventName ,duration){
+//      console.log("Event : " +eventName + " Duration:" + duration);
+// }
+function printEventDuration(traceObj) {
+    console.log("Event : " + traceObj.key + " Duration:" + traceObj.duration);
+    if (traceObj.properties)
+        console.log("Event properties" + traceObj.properties);
 }
 console.log("======================Trace Sample Start==========================");
 //# sourceMappingURL=index.js.map

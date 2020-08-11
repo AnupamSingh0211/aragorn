@@ -1,11 +1,13 @@
 class Trace {
-    name = null;
+    key = null;
     startTime = null;
     duration = null;
-    constructor(name) {
-      this.name = name;
+    properties = null;
+    constructor(key, properties = null) {
+      this.key = key;
       this.startTime;
       this.duration;
+      this.properties = properties;
     }
   
     start() {

@@ -1,5 +1,4 @@
 import Aragorn from './Aragorn';
-import AragornSingleTon from './AragornSingleTon';
 
 console.log("======================Trace Sample Start==========================" );
 
@@ -7,16 +6,11 @@ console.log("======================Trace Sample Start=========================="
 //Case 1 when correct values of event name is given
 
 
-
+//AragornSingleTon.enableLogs(true)
 
 Aragorn.startTrace('CUSTOM_EVENT_1');
 //add delay then stop
 setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_1',printEventDuration)},2000);
-
-
-AragornSingleTon.startTrace('CUSTOM_EVENT_3');
-//add delay then stop
-setTimeout(() => { AragornSingleTon.stopTrace('CUSTOM_EVENT_3',printEventDuration)},2000);
 
 
 //Case 2 when correct values of event name 
@@ -68,12 +62,41 @@ setTimeout(() => { AragornSingleTon.stopTrace('CUSTOM_EVENT_3',printEventDuratio
   //Case 6  to clear all traces
   //Aragorn.clearAllTrace();
 
+  //Case 7 PassExtra properties in a trace
+
+  let traceProperties = new Map();  
+  
+traceProperties.set('property1', 'value1');     
+traceProperties.set('property2', 'www.androidiots.in');       
+
+
+Aragorn.startTrace('CUSTOM_EVENT_WITH_MAP', traceProperties);
+//add delay then stop
+setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_WITH_MAP',printEventDurationAndMap)},2000);
+
+
+function printEventDurationAndMap(traceObj){
+  
+  if(traceObj)
+  console.log("Event : " +traceObj.key + " Duration:" + traceObj.duration);
+  
+  if(traceObj.properties)
+  {
+    traceObj.properties.forEach((value: string, key: string) => {
+      console.log(key, value);
+  });
+  }
+}
   
 
 
-function printEventDuration( eventName ,duration){
-     console.log("Event : " +eventName + " Duration:" + duration);
-}
+function printEventDuration(traceObj){
+  
+  if(traceObj)
+  console.log("Event : " +traceObj.key + " Duration:" + traceObj.duration);
+  
+  }
 
-console.log("======================Trace Sample Start==========================" );
+console.log("======================Trace Sample End==========================" );
+
 

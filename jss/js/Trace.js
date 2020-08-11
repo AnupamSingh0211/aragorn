@@ -1,13 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Trace = /** @class */ (function () {
-    function Trace(name) {
-        this.name = null;
+    function Trace(key, properties) {
+        if (properties === void 0) { properties = null; }
+        this.key = null;
         this.startTime = null;
         this.duration = null;
-        this.name = name;
+        this.properties = null;
+        this.key = key;
         this.startTime;
         this.duration;
+        this.properties = properties;
     }
     Trace.prototype.start = function () {
         this.startTime = Date.now();
