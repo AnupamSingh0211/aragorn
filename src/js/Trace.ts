@@ -1,22 +1,19 @@
 class Trace {
-    key = null;
-    startTime = null;
-    duration = null;
-    properties = null;
-    constructor(key, properties = null) {
-      this.key = key;
-      this.startTime;
-      this.duration;
-      this.properties = properties;
-    }
-  
-    start() {
-      this.startTime = Date.now();
-    }
-  
-    stop() {
-      this.duration = Date.now() - this.startTime;
-    }
+  key: string = null;
+  startTime: number = null;
+  duration: number = null;
+  properties: any = null;
+  constructor(key: string, properties: any = null) {
+    this.key = key;
+    this.properties = properties;
   }
-  export default Trace;
-  
+
+  start() {
+    this.startTime = Date.now();
+  }
+
+  stop() {
+    this.duration = Date.now() - this.startTime;
+  }
+}
+export default Trace;
