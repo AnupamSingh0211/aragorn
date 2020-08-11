@@ -14,8 +14,8 @@ import Trace from './Trace';
     {
     const startTraceFailed = 'Aragon is unable to start Trace : Trace Key ';
 
-     if (!traceKey )  throw new ReferenceError().name = startTraceFailed + 'Undefined';
-     if(typeof traceKey !== 'string') throw new TypeError().name = startTraceFailed + 'should be string'
+     if (!traceKey )  throw new ReferenceError(startTraceFailed + 'Undefined');
+     if(typeof traceKey !== 'string') throw new TypeError(startTraceFailed + 'should be string');
         
      if (traceKey && this.traceMap.has(traceKey)) {
             this.traceMap.delete(traceKey)
@@ -35,9 +35,9 @@ import Trace from './Trace';
     const stopTraceFailed = 'Aragon is unable to stop Trace : Trace Key ';
 
 
-    if (!traceKey )  throw new ReferenceError().name = stopTraceFailed + 'Undefined';
-    if(typeof traceKey !== 'string') throw new TypeError().name = stopTraceFailed + 'should be string'
-    if(!this.traceMap.has(traceKey)) throw new Error().name = stopTraceFailed + 'Missing'
+    if (!traceKey )  throw new ReferenceError(stopTraceFailed + 'Undefined');
+    if(typeof traceKey !== 'string') throw new TypeError(stopTraceFailed + 'should be string')
+    if(!this.traceMap.has(traceKey)) throw new Error(stopTraceFailed + 'Missing')
 
         const traceObj = this.traceMap.get(traceKey)
         traceObj.stop()

@@ -12,9 +12,9 @@ var Aragorn = /** @class */ (function () {
     Aragorn.prototype.startTrace = function (traceKey) {
         var startTraceFailed = 'Aragon is unable to start Trace : Trace Key ';
         if (!traceKey)
-            throw new ReferenceError().name = startTraceFailed + 'Undefined';
+            throw new ReferenceError(startTraceFailed + 'Undefined');
         if (typeof traceKey !== 'string')
-            throw new TypeError().name = startTraceFailed + 'should be string';
+            throw new TypeError(startTraceFailed + 'should be string');
         if (traceKey && this.traceMap.has(traceKey)) {
             this.traceMap.delete(traceKey);
         }
@@ -27,11 +27,11 @@ var Aragorn = /** @class */ (function () {
     Aragorn.prototype.stopTrace = function (traceKey, fn) {
         var stopTraceFailed = 'Aragon is unable to stop Trace : Trace Key ';
         if (!traceKey)
-            throw new ReferenceError().name = stopTraceFailed + 'Undefined';
+            throw new ReferenceError(stopTraceFailed + 'Undefined');
         if (typeof traceKey !== 'string')
-            throw new TypeError().name = stopTraceFailed + 'should be string';
+            throw new TypeError(stopTraceFailed + 'should be string');
         if (!this.traceMap.has(traceKey))
-            throw new Error().name = stopTraceFailed + 'Missing';
+            throw new Error(stopTraceFailed + 'Missing');
         var traceObj = this.traceMap.get(traceKey);
         traceObj.stop();
         this.traceMap.delete(traceKey);
