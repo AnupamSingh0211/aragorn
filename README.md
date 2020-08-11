@@ -83,6 +83,34 @@ Aragorn.clearAllTrace();
 ```
 Aragorn.enableLogs(true);
 ```
+
+#### Case 5 : Pass Extra Properties with the events
+```
+let traceProperties = new Map();  
+  
+traceProperties.set('property1', 'value1');     
+traceProperties.set('property2', 'www.androidiots.in');       
+
+
+Aragorn.startTrace('CUSTOM_EVENT_WITH_MAP', traceProperties);
+//add delay then stop
+setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_WITH_MAP',printEventDurationAndMap)},2000);
+
+
+function printEventDurationAndMap(traceObj){
+  
+  if(traceObj)
+  console.log("Event : " +traceObj.key + " Duration:" + traceObj.duration);
+  
+  if(traceObj.properties)
+  {
+    traceObj.properties.forEach((value: string, key: string) => {
+      console.log(key, value);
+  });
+  }
+}
+```
+
 ---
 ## Edge Cases
 
