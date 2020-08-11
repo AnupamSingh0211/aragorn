@@ -2,7 +2,7 @@
 ![The Strider](images/aragorn.jpg)
 
 
-A Simple Java Script Library, to track events in our JS code bases.
+A Simple Type Script Library, to track events in our JS code bases.
 
 <br>
 Tracking time taken by a piece of code is always the easiest way to do profiling.
