@@ -11,43 +11,33 @@ var Aragorn = /** @class */ (function () {
     };
     Aragorn.prototype.startTrace = function (traceKey) {
         var startTraceFailed = 'Aragon is unable to start Trace : Trace Key ';
-        if (traceKey) {
-            if (typeof traceKey === 'string') {
-                if (traceKey && this.traceMap.has(traceKey)) {
-                    this.traceMap.delete(traceKey);
-                }
-                var traceObj = new Trace_1.default(traceKey);
-                this.traceMap.set(traceKey, traceObj);
-                traceObj.start();
-                if (this.logsEnabled)
-                    console.log(' Aragorn has started the trace : Event = ' + traceKey);
-            }
-            else
-                throw new TypeError().name = startTraceFailed + 'should be string';
-        }
-        else
+        if (!traceKey)
             throw new ReferenceError().name = startTraceFailed + 'Undefined';
+        if (typeof traceKey !== 'string')
+            throw new TypeError().name = startTraceFailed + 'should be string';
+        if (traceKey && this.traceMap.has(traceKey)) {
+            this.traceMap.delete(traceKey);
+        }
+        var traceObj = new Trace_1.default(traceKey);
+        this.traceMap.set(traceKey, traceObj);
+        traceObj.start();
+        if (this.logsEnabled)
+            console.log(' Aragorn has started the trace : Event = ' + traceKey);
     };
     Aragorn.prototype.stopTrace = function (traceKey, fn) {
         var stopTraceFailed = 'Aragon is unable to stop Trace : Trace Key ';
-        if (traceKey) {
-            if (typeof traceKey === 'string') {
-                if (this.traceMap.has(traceKey)) {
-                    var traceObj = this.traceMap.get(traceKey);
-                    traceObj.stop();
-                    this.traceMap.delete(traceKey);
-                    if (this.logsEnabled)
-                        console.log(' Aragorn has finshed the trace : Event = ' + traceObj.name + ' Event Duration = ' + traceObj.duration);
-                    fn(traceObj.name, traceObj.duration);
-                }
-                else
-                    throw new Error().name = stopTraceFailed + 'Missing';
-            }
-            else
-                throw new TypeError().name = stopTraceFailed + 'should be string';
-        }
-        else
+        if (!traceKey)
             throw new ReferenceError().name = stopTraceFailed + 'Undefined';
+        if (typeof traceKey !== 'string')
+            throw new TypeError().name = stopTraceFailed + 'should be string';
+        if (!this.traceMap.has(traceKey))
+            throw new Error().name = stopTraceFailed + 'Missing';
+        var traceObj = this.traceMap.get(traceKey);
+        traceObj.stop();
+        this.traceMap.delete(traceKey);
+        if (this.logsEnabled)
+            console.log(' Aragorn has finshed the trace : Event = ' + traceObj.name + ' Event Duration = ' + traceObj.duration);
+        fn(traceObj.name, traceObj.duration);
     };
     Aragorn.prototype.clearAllTrace = function () {
         delete this.traceMap;

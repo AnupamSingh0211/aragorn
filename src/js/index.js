@@ -19,8 +19,8 @@ setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_1',printEventDuration)},2000)
 
 
 //Case 3 When an event stop is called without start
-// Aragorn.stopTrace('CUSTOM_EVENT_3',printEventDuration) // generic error will be thrown 
-// Aragorn.stopTrace(122,printEventDuration) //type error will be thrown
+//Aragorn.stopTrace('CUSTOM_EVENT_3',printEventDuration) // generic error will be thrown 
+//Aragorn.stopTrace(122,printEventDuration) //type error will be thrown
 
 
 
@@ -53,9 +53,9 @@ setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_1',printEventDuration)},2000)
 
   //case 5 when  null is passed as key in start or stop  trace
 
-//   Aragorn.startTrace(null); // Reference error will be thrown
+  //Aragorn.startTrace(null); // Reference error will be thrown
 
-//   Aragorn.stopTrace(null);  // Reference error will be thrown
+  //Aragorn.stopTrace(null);  // Reference error will be thrown
 
   //Case 6  to clear all traces
   //Aragorn.clearAllTrace();
