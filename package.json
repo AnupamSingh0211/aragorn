@@ -1,5 +1,5 @@
 {
-  "name": "aragorn-tracer",
+  "name": "@js-idiots/aragorn",
   "version": "1.0.0",
   "description": "A Type script library to create traces based on start and end time of an event and measure the latency difference",
   "main": "lib/index.js",
@@ -10,16 +10,20 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "test": "tsc && jest --config jestconfig.json",
-   "build": "tsc",
-   "prepare": "npm run build",
-   "prepublishOnly": "npm test && npm run lint",
-   "preversion": "npm run lint",
-   "version": "npm run format && git add -A src",
-   "postversion": "git push && git push --tags"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "author": "Anupam Singh",
   "license": "ISC",
-  "keywords": ["tracker", "aragorn","trace"],
+  "keywords": [
+    "tracker",
+    "aragorn",
+    "trace"
+  ],
   "devDependencies": {
     "@types/jest": "^26.0.9",
     "babel-core": "^6.26.3",
@@ -40,5 +44,13 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnupamSingh0211/aragorn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AnupamSingh0211/aragorn/issues"
+  },
+  "homepage": "https://github.com/AnupamSingh0211/aragorn#readme"
 }

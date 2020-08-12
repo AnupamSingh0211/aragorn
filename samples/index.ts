@@ -1,4 +1,4 @@
-import Aragorn from './Aragorn';
+import Aragorn from '../src/js/Aragorn';
 
 console.log('======================Trace Sample Start==========================');
 
@@ -55,7 +55,7 @@ setTimeout(() => {
 
 // Case 7 PassExtra properties in a trace
 
-//  const traceProperties = new Map();
+//  const traceProper ties = new Map();
 
 // traceProperties.set('property1', 'value1');
 // traceProperties.set('property2', 'www.androidiots.in');

@@ -3,9 +3,9 @@ import Trace from './Trace';
 class Aragorn {
   private static instance: Aragorn;
 
-  traceMap = new Map<string, Trace>();
+  private traceMap = new Map<string, Trace>();
 
-  logsEnabled = false;
+  private logsEnabled = false;
 
   static getInstance(): Aragorn {
     if (!Aragorn.instance) {
