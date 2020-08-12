@@ -1,6 +1,6 @@
 {
   "name": "@js-idiots/aragorn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Type script library to create traces based on start and end time of an event and measure the latency difference",
   "main": "./src/Aragorn.ts",
   "types": "src/Aragorn.ts",
