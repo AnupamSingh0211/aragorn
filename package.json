@@ -43,8 +43,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "Aragorn": "file:../foo/bar"
+    "babel-polyfill": "^6.26.0"
   },
   "repository": {
     "type": "git",
