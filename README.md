@@ -47,8 +47,8 @@ Note: Aragorn also takes a function when you ask him to stop the trace.
 Aragorn will return details like event name and event duration for you to use.
 
 ```javascript
-function printEventDuration( eventName ,duration){
-     console.log("Event : " +eventName + " Duration:" + duration);
+function printEventDuration(traceObj: any) {
+  if (traceObj) console.log('Event : ' + traceObj.key + ' Duration:' + traceObj.duration);
 }
 ```
 
@@ -66,7 +66,7 @@ Aragorn.startTrace('CUSTOM_EVENT_1');
 setTimeout(() => { Aragorn.stopTrace('CUSTOM_EVENT_1',printEventDuration)},2000);
 ```
 ---
-#### Case 2 : values of event name simply
+#### Case 2 : values of event is given without any delay
 ```
 Aragorn.startTrace('CUSTOM_EVENT_2');
 //piece of code you want to track for time
@@ -110,6 +110,8 @@ function printEventDurationAndMap(traceObj){
   }
 }
 ```
+
+All the Use Cases are also available under samples/index.js
 
 ---
 ## Edge Cases
