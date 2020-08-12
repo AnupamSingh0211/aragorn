@@ -9,11 +9,11 @@ class Trace {
   }
 
   start() {
-    this.startTime = Date.now();
+    this.startTime = performance.now();
   }
 
   stop() {
-    this.duration = Date.now() - this.startTime;
+    this.duration = Math.floor(performance.now() - this.startTime);
   }
 }
 export default Trace;
