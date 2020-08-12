@@ -1,9 +1,9 @@
 {
   "name": "@js-idiots/aragorn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Type script library to create traces based on start and end time of an event and measure the latency difference",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./src/Aragorn.ts",
+  "types": "src/Aragorn.ts",
   "scripts": {
     "dev": "webpack --mode development",
     "start": "tsc && webpack-dev-server --mode development --open",
@@ -43,7 +43,8 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "Aragorn": "file:../foo/bar"
   },
   "repository": {
     "type": "git",
